@@ -86,21 +86,25 @@ class PhysicalExamination {
 
 	// --- 시력의 분포를 구함 --- //
 	static void distVision(PhysData[] dat, int[] dist) {
-		for (int j = 0; j < 21; j++)
+		for (int j = 0; j < 21; j++) {
 			dist[j] = 0;
-		{
-			for (int i = 0; i < dat.length; i++) {
-				if (dat[i].vision >= 0.0 && dat[i].vision <= VMAX / 10.0) {
-					dist[(int) (dat[i].vision * 10)]++;
-				}
+		}
+		for (int i = 0; i < dat.length; i++) {
+			if (dat[i].vision >= 0.0 && dat[i].vision <= VMAX / 10.0) {
+				dist[(int) (dat[i].vision * 10)]++;
 			}
 		}
 	}
 
 	public static void main(String[] args) {
 
-		PhysData[] x = { new PhysData("강민하", 162, 0.3), new PhysData("김찬우", 173, 0.7), new PhysData("박준서", 175, 2.0),
-				new PhysData("유서범", 171, 1.5), new PhysData("이수연", 168, 0.4), new PhysData("장경오", 174, 1.2),
+		PhysData[] x = { 
+				new PhysData("강민하", 162, 0.3), 
+				new PhysData("김찬우", 173, 0.7), 
+				new PhysData("박준서", 175, 2.0),
+				new PhysData("유서범", 171, 1.5), 
+				new PhysData("이수연", 168, 0.4), 
+				new PhysData("장경오", 174, 1.2),
 				new PhysData("황지안", 169, 0.8), };
 		int[] vdist = new int[VMAX]; // 시력의 분포
 
